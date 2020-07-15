@@ -4,41 +4,36 @@ class TicTacToe
   end
 
   def board
-    puts  "| #{1} | #{2} | #{3} |
-| #{4} | #{5} | #{6} |
-| #{7} | #{8} | #{9} |"
+    puts  `| #{sq1} |`
+  end
+
+  def selections
+    @selections = []
+    puts "Please select a square"
+    case gets.strip
+      when "1"
+        @selections.push(1)
+        puts board
+        puts selections
+      when "2"
+        puts 'test2'
+    end
   end
 
   def introScreen
     puts  "Welcome to tic-tac-toe! Each player will take 
 turns placing an X or an O. The winner is the 
-player with three X's or O's in a row.
-    "
-    puts board
+player with three X's or O's in a row. \n\n"
+
+    puts board 
+
+    puts selections
   end
-=begin
-  case gets.strip
-    when "1"
-    when "2"
-    when "3"
-    when "4"
-    when "5"
-    when "6"
-    when "7"
-    when "8"
-    when "9"
+
+  def sq1
+    @sq1 = 1
+    @selections.include(1) ? @sq1 = x : @sq1 = 1
   end
-=end
 end
 
 TicTacToe.new
-
-=begin
-introduction of rules
-has 9 slots to place
-each player takes turns placing
-if a player hits 3 in a row, they win
-if all spots are filled without a winner, it is a draw
-
-step 1: turn a square into an x
-=end
