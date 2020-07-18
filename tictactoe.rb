@@ -5,6 +5,11 @@ module TicEquations
       check = win.map { |arr| (arr-ticked).empty? }
       check.include?(true)
     end
+
+    def draw(x,y)
+      totalTicked = x + y
+      tickedValue = totalTicked.inject(0) {|sum, i| sum + i}
+    end
   end
 
 class TicTacToe
@@ -203,6 +208,10 @@ player with three X's or O's in a row."
       return playAgain
     elsif checker(@@selectionsO) == true
       puts "\nO IS THE WINNER!!"
+      puts board
+      return playAgain
+    elsif draw(@@selectionsX,@@selectionsO) == 45
+      puts "\nDRAW! NO ONE WINS!!"
       puts board
       return playAgain
     end
