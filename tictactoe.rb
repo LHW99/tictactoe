@@ -82,7 +82,7 @@ class TicTacToe
         @@turn % 2 == 0 ? (@@sq6 = 'x'; @@selectionsX.push(6))
         : (@@sq6 = 'o'; @@selectionsO.push(6))
         if winCondition == true  
-          return winCondition 
+          return winCondition
         else
           (board; selections)
         end
@@ -128,19 +128,15 @@ player with three X's or O's in a row. \n\n"
 
   def playAgain
     puts "Play again? (Y/N)"
-    while user_input = gets.strip
-    case user_input
-    when user_input.downcase == "y"
+    user_input = gets.strip
+    if user_input.downcase == "y"
       reset
       TicTacToe.new
-      break
-    when user_input.downcase == "n"
+    elsif user_input.downcase == "n"
       exit!
-      break
     else
       puts "Please input Y or N"
     end
-  end
   end
 
   def winCondition
